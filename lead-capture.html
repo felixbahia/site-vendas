@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRÁTIS: Guia Completo de Vendas Online | Download Imediato</title>
+    <meta name="description" content="Baixe gratuitamente o guia que já ajudou mais de 10.000 pessoas a triplicar suas vendas online">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --success: #10b981;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #334155;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        /* Left Side - Benefits */
+        .benefits-side {
+            color: white;
+        }
+
+        .benefits-side h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .benefits-side .highlight {
+            color: #fbbf24;
+            display: block;
+        }
+
+        .benefits-side p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .benefit-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .benefit-list li {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: start;
+            gap: 15px;
+        }
+
+        .benefit-list li:last-child {
+            border-bottom: none;
+        }
+
+        .benefit-list li::before {
+            content: '✓';
+            background: var(--success);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        /* Right Side - Form */
+        .form-side {
+            background: white;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .form-header .badge {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .form-header p {
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+
+        /* Form Styles */
+        .opt-in-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 18px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+            padding: 22px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+        }
+
+        .privacy-text {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .privacy-text a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Social Proof in Form */
+        .form-proof {
+            background: #f0fdf4;
+            border-left: 4px solid var(--success);
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: 10px;
+        }
+
+        .form-proof p {
+            color: var(--text);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .form-proof strong {
+            color: var(--success);
+            font-size: 1.1rem;
+        }
+
+        /* Preview Box */
+        .preview-box {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .preview-box h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .preview-items {
+            list-style: none;
+        }
+
+        .preview-items li {
+            padding: 12px 0;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .preview-items li::before {
+            content: '📄';
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .benefits-side {
+                text-align: center;
+            }
+
+            .benefit-list li {
+                justify-content: center;
+            }
+
+            .trust-badges {
+                justify-content: center;
+            }
+
+            .form-side {
+                padding: 35px 25px;
+            }
+        }
+
+        /* Success Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 50px;
+            border-radius: 25px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-content .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--success);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 25px;
+        }
+
+        .modal-content h2 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        .modal-content p {
+            color: var(--text);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .modal-btn {
+            background: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Voltar</a>
+
+    <div class="container">
+        <!-- Left Side - Benefits -->
+        <div class="benefits-side">
+            <h1>
+                Baixe GRÁTIS o Guia Completo
+                <span class="highlight">Vendas Online de Alto Impacto</span>
+            </h1>
+            <p>Descubra os segredos que os experts usam para vender todos os dias</p>
+
+            <ul class="benefit-list">
+                <li>
+                    <span><strong>7 Estratégias Comprovadas</strong> para aumentar suas conversões em até 300%</span>
+                </li>
+                <li>
+                    <span><strong>Templates Prontos</strong> de páginas de vendas que já geraram milhões</span>
+                </li>
+                <li>
+                    <span><strong>Checklist Completo</strong> para lançar seu primeiro funil em 48 horas</span>
+                </li>
+                <li>
+                    <span><strong>Gatilhos Mentais</strong> mais poderosos para copywriting persuasivo</span>
+                </li>
+                <li>
+                    <span><strong>Fórmulas de Email Marketing</strong> com taxa de abertura acima de 40%</span>
+                </li>
+            </ul>
+
+            <div class="trust-badges">
+                <div class="trust-badge">✓ 10.000+ Downloads</div>
+                <div class="trust-badge">✓ 100% Gratuito</div>
+                <div class="trust-badge">✓ Acesso Imediato</div>
+            </div>
+        </div>
+
+        <!-- Right Side - Form -->
+        <div class="form-side">
+            <div class="form-header">
+                <span class="badge">🎁 Download Gratuito</span>
+                <h2>Receba Seu Guia Agora</h2>
+                <p>Preencha os dados abaixo e receba imediatamente por email</p>
+            </div>
+
+            <form class="opt-in-form" id="leadForm">
+                <div class="form-group">
+                    <label for="name">Nome Completo *</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="Digite seu nome completo"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Melhor Email *</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="seuemail@exemplo.com"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">WhatsApp (opcional)</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        placeholder="(00) 00000-0000"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="interest">Seu Maior Interesse *</label>
+                    <select id="interest" name="interest" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="traffic">Tráfego Pago</option>
+                        <option value="funnel">Funis de Vendas</option>
+                        <option value="copy">Copywriting</option>
+                        <option value="email">Email Marketing</option>
+                        <option value="conversion">Otimização de Conversão</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    📥 Baixar Guia Grátis Agora
+                </button>
+
+                <p class="privacy-text">
+                    🔒 Seus dados estão 100% seguros. Não compartilhamos com terceiros.<br>
+                    Ao se cadastrar, você concorda com nossa <a href="#">Política de Privacidade</a>.
+                </p>
+            </form>
+
+            <div class="form-proof">
+                <p><strong>+237 pessoas</strong> baixaram este guia nas últimas 24 horas</p>
+                <p style="margin: 0;">⭐⭐⭐⭐⭐ Avaliação média: 4.9/5</p>
+            </div>
+
+            <div class="preview-box">
+                <h3>📚 O que você vai receber:</h3>
+                <ul class="preview-items">
+                    <li>Guia PDF completo com 47 páginas</li>
+                    <li>3 Templates editáveis de páginas de venda</li>
+                    <li>Checklist de otimização em Excel</li>
+                    <li>Bônus: 50 Headlines que Vendem</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-icon">✓</div>
+            <h2>Cadastro Realizado!</h2>
+            <p>Enviamos o guia completo para seu email. Verifique sua caixa de entrada (e também o spam, só para garantir).</p>
+            <p style="color: var(--success); font-weight: 600;">🎁 Você também receberá conteúdos exclusivos semanalmente!</p>
+            <button class="modal-btn" onclick="closeModal()">Entendido</button>
+        </div>
+    </div>
+
+    <script>
+        // Form submission
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Aqui você integraria com seu serviço de email marketing
+            // (Mailchimp, ActiveCampaign, RD Station, etc.)
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                interest: document.getElementById('interest').value
+            };
+            
+            console.log('Lead capturado:', formData);
+            
+            // Mostrar modal de sucesso
+            document.getElementById('successModal').classList.add('active');
+            
+            // Resetar formulário
+            this.reset();
+        });
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('successModal').classList.remove('active');
+        }
+
+        // Phone mask
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length <= 11) {
+                value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+                value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+            }
+            
+            e.target.value = value;
+        });
+
+        // Close modal on outside click
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

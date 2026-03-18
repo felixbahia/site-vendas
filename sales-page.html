@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transforme Seu Negócio em 30 Dias | Método Comprovado</title>
+    <meta name="description" content="Descubra o método que já transformou mais de 5.000 negócios digitais">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #334155;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 22px 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.5);
+        }
+
+        .urgency {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-top: 25px;
+            font-weight: 600;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: white;
+            text-align: center;
+        }
+
+        .problem h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--dark);
+            margin-bottom: 40px;
+            font-weight: 800;
+        }
+
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .pain-point {
+            background: #fef2f2;
+            border-left: 5px solid #ef4444;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .pain-point::before {
+            content: '❌';
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .pain-point h3 {
+            color: #dc2626;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* Solution Section */
+        .solution {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .solution h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+
+        .solution-description {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+
+        /* Benefits */
+        .benefits {
+            background: white;
+        }
+
+        .benefits h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--dark);
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .benefit-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            background: var(--light);
+            text-align: center;
+        }
+
+        .social-proof h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--dark);
+            margin-bottom: 50px;
+            font-weight: 800;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '★★★★★';
+            color: #fbbf24;
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            color: white;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Pricing */
+        .pricing {
+            background: white;
+            text-align: center;
+        }
+
+        .pricing h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .price-box {
+            max-width: 600px;
+            margin: 50px auto;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border: 3px solid var(--primary);
+        }
+
+        .price-tag {
+            margin-bottom: 30px;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #6c757d;
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .current-price {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--success);
+            display: block;
+        }
+
+        .price-subtext {
+            color: var(--text);
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        .guarantee {
+            background: #dcfce7;
+            border: 2px solid var(--success);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+
+        .guarantee h3 {
+            color: var(--success);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--light);
+        }
+
+        .faq h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--dark);
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--light);
+        }
+
+        .faq-answer {
+            padding: 0 25px 25px;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 30px;
+            font-weight: 900;
+        }
+
+        .final-cta p {
+            font-size: 1.5rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+        }
+
+        .countdown {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            display: inline-flex;
+            gap: 20px;
+            padding: 30px 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .countdown-item {
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: 900;
+            display: block;
+            color: var(--success);
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .stats {
+                flex-direction: column;
+            }
+
+            .countdown {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transforme Seu Negócio Digital em Apenas 30 Dias</h1>
+            <p class="subtitle">Descubra o método comprovado que já gerou mais de R$ 50 milhões em vendas para 5.000+ empreendedores</p>
+            <button class="cta-primary" onclick="scrollToPrice()">Quero Transformar Meu Negócio Agora</button>
+            <div class="urgency">⚡ Apenas 47 vagas disponíveis nesta turma</div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2>Você Está Cansado de...</h2>
+            <div class="pain-points">
+                <div class="pain-point">
+                    <h3>Investir em Tráfego Sem Retorno</h3>
+                    <p>Gastar fortunas em anúncios que não convertem e ver seu dinheiro sendo desperdiçado</p>
+                </div>
+                <div class="pain-point">
+                    <h3>Funis Que Não Funcionam</h3>
+                    <p>Criar páginas bonitas mas que não geram vendas reais para o seu negócio</p>
+                </div>
+                <div class="pain-point">
+                    <h3>Falta de Estratégia Clara</h3>
+                    <p>Testar mil coisas diferentes sem um plano concreto que realmente funcione</p>
+                </div>
+                <div class="pain-point">
+                    <h3>Resultado Inconsistente</h3>
+                    <p>Ter meses bons e meses ruins sem saber como estabilizar as vendas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <h2>A Solução que Você Estava Procurando</h2>
+            <p class="solution-description">
+                Apresentamos o <strong>Método Conversão Total</strong>: um sistema passo a passo validado por mais de 5.000 empreendedores que transformaram completamente seus resultados em apenas 30 dias. Não é teoria, é um método testado e comprovado no mercado real.
+            </p>
+            <button class="cta-primary" onclick="scrollToPrice()">Sim, Eu Quero Esse Método</button>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2>O Que Você Vai Conquistar</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="icon">🚀</span>
+                    <h3>Aumento de 300% em Conversões</h3>
+                    <p>Aprenda as técnicas exatas para triplicar suas taxas de conversão usando psicologia de vendas e gatilhos mentais comprovados</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="icon">💰</span>
+                    <h3>ROI Previsível e Escalável</h3>
+                    <p>Construa um sistema de vendas que gera resultados consistentes e pode ser facilmente escalado conforme seu negócio cresce</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="icon">📊</span>
+                    <h3>Funil Completo Otimizado</h3>
+                    <p>Receba templates prontos de todas as páginas do funil: captura, vendas, upsell e follow-up testados em milhões de acessos</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="icon">🎯</span>
+                    <h3>Estratégias de Tráfego Pago</h3>
+                    <p>Domine Facebook Ads, Google Ads e Instagram Ads com estratégias que reduzem custos e aumentam resultados</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="icon">⚡</span>
+                    <h3>Automação Inteligente</h3>
+                    <p>Configure automações que vendem 24/7 por você, liberando seu tempo para focar na estratégia e crescimento</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="icon">🎓</span>
+                    <h3>Suporte Especializado</h3>
+                    <p>Acesso direto a uma comunidade de especialistas e mentorias ao vivo para tirar todas as suas dúvidas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <h2>Histórias de Sucesso Reais</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Em 45 dias implementando o método, fui de R$ 15 mil para R$ 87 mil em faturamento. O ROI foi de 580% no primeiro mês!"</p>
+                    <div class="testimonial-author">Maria Silva</div>
+                    <div class="testimonial-role">E-commerce de Moda</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Minha taxa de conversão aumentou de 1,2% para 4,8%. Finalmente consegui escalar meu negócio de forma previsível e sustentável."</p>
+                    <div class="testimonial-author">João Santos</div>
+                    <div class="testimonial-role">Infoprodutos</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"O que mais me impressionou foi a simplicidade do método. Em apenas 2 semanas já estava vendo resultados concretos no meu faturamento."</p>
+                    <div class="testimonial-author">Ana Rodrigues</div>
+                    <div class="testimonial-role">Consultoria Online</div>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">5.000+</span>
+                    <span class="stat-label">Alunos Transformados</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">R$ 50M+</span>
+                    <span class="stat-label">Gerados em Vendas</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4.9/5</span>
+                    <span class="stat-label">Avaliação Média</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Taxa de Satisfação</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Investimento Especial Por Tempo Limitado</h2>
+            <div class="price-box">
+                <div class="price-tag">
+                    <span class="old-price">De R$ 2.997,00</span>
+                    <span class="current-price">R$ 997</span>
+                    <p class="price-subtext">ou 12x de R$ 97 sem juros</p>
+                </div>
+
+                <div class="guarantee">
+                    <h3>🛡️ Garantia Total de 30 Dias</h3>
+                    <p>Se você implementar o método e não ver resultados em 30 dias, devolvemos 100% do seu dinheiro. Sem perguntas, sem complicações.</p>
+                </div>
+
+                <button class="cta-primary" onclick="alert('Redirecionamento para checkout')">
+                    Garantir Minha Vaga Agora
+                </button>
+                <p style="margin-top: 20px; color: #ef4444; font-weight: 600;">
+                    ⏰ Oferta expira em 24 horas
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2>Perguntas Frequentes</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    O método funciona para iniciantes?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Sim! O método foi desenvolvido para funcionar tanto para quem está começando quanto para quem já tem experiência. Começamos do básico e avançamos progressivamente.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Quanto tempo leva para ver resultados?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    A maioria dos nossos alunos começa a ver os primeiros resultados entre 7 e 14 dias após implementar o método. Em 30 dias, os resultados são significativos.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Preciso de conhecimentos técnicos?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Não! Tudo é explicado de forma simples e passo a passo. Se você sabe usar um computador e acessar a internet, consegue implementar.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    A garantia é real?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    Absolutamente! Temos uma garantia incondicional de 30 dias. Se não ficar satisfeito por qualquer motivo, basta solicitar o reembolso total.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Sua Transformação Começa Agora</h2>
+            <p>Junte-se a mais de 5.000 empreendedores que já transformaram seus negócios</p>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">23</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">47</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">33</span>
+                    <span class="countdown-label">Segundos</span>
+                </div>
+            </div>
+
+            <button class="cta-primary" onclick="scrollToPrice()">
+                Quero Começar Minha Transformação
+            </button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Método Conversão Total. Todos os direitos reservados.</p>
+            <p style="margin-top: 10px;">
+                <a href="index.html">← Voltar para o Menu Principal</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll suave para preços
+        function scrollToPrice() {
+            document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Countdown timer
+        function updateCountdown() {
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+            
+            let hours = parseInt(hoursEl.textContent);
+            let minutes = parseInt(minutesEl.textContent);
+            let seconds = parseInt(secondsEl.textContent);
+            
+            seconds--;
+            
+            if (seconds < 0) {
+                seconds = 59;
+                minutes--;
+            }
+            
+            if (minutes < 0) {
+                minutes = 59;
+                hours--;
+            }
+            
+            if (hours < 0) {
+                hours = 23;
+            }
+            
+            hoursEl.textContent = String(hours).padStart(2, '0');
+            minutesEl.textContent = String(minutes).padStart(2, '0');
+            secondsEl.textContent = String(seconds).padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                
+                // Fechar todas
+                document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+                
+                // Abrir a clicada se estava fechada
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

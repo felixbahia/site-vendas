@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transforme Seu Negócio Digital | Funil de Vendas Completo</title>
+    <meta name="description" content="Sistema completo de páginas otimizadas para conversão e vendas">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #334155;
+            --success: #10b981;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 60px 20px 40px;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .pages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .page-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .page-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .page-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+
+        .page-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .page-card p {
+            color: var(--text);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .features {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 60px;
+            color: white;
+        }
+
+        .features h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-item span {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .pages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🚀 Funil de Vendas Profissional</h1>
+            <p class="subtitle">Páginas otimizadas para conversão máxima do seu negócio digital</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="pages-grid">
+            <div class="page-card">
+                <div class="page-icon">📈</div>
+                <h2>Página de Vendas</h2>
+                <p>Design persuasivo com copy otimizada para converter visitantes em clientes. Elementos estratégicos de prova social e urgência.</p>
+                <a href="sales-page.html" class="btn">Acessar Página</a>
+            </div>
+
+            <div class="page-card">
+                <div class="page-icon">🎯</div>
+                <h2>Captura de Leads</h2>
+                <p>Formulário de opt-in de alta conversão para construir sua lista de emails qualificados e nutrir relacionamentos.</p>
+                <a href="lead-capture.html" class="btn">Acessar Página</a>
+            </div>
+
+            <div class="page-card">
+                <div class="page-icon">💎</div>
+                <h2>Página de Upsell</h2>
+                <p>Oferta estratégica pós-compra para maximizar o valor do cliente com produtos complementares irresistíveis.</p>
+                <a href="upsell.html" class="btn">Acessar Página</a>
+            </div>
+
+            <div class="page-card">
+                <div class="page-icon">🎬</div>
+                <h2>VSL (Video Sales Letter)</h2>
+                <p>Página focada em vídeo de vendas com elementos de conversão e chamadas para ação estrategicamente posicionadas.</p>
+                <a href="vsl.html" class="btn">Acessar Página</a>
+            </div>
+        </div>
+
+        <div class="features">
+            <h3>✨ Características do Sistema</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span>📱</span>
+                    <strong>100% Responsivo</strong>
+                    <p>Perfeito em todos os dispositivos</p>
+                </div>
+                <div class="feature-item">
+                    <span>⚡</span>
+                    <strong>Carregamento Rápido</strong>
+                    <p>Otimizado para performance</p>
+                </div>
+                <div class="feature-item">
+                    <span>🎨</span>
+                    <strong>Design Moderno</strong>
+                    <p>Interface atraente e profissional</p>
+                </div>
+                <div class="feature-item">
+                    <span>🔄</span>
+                    <strong>Multi-navegador</strong>
+                    <p>Compatible com todos navegadores</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Funil de Vendas Profissional | Desenvolvido para Máxima Conversão</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descubra o Segredo Por Trás de 10.000+ Histórias de Sucesso</title>
+    <meta name="description" content="Assista ao vídeo que está transformando vidas e negócios">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #334155;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--dark);
+        }
+
+        /* Header */
+        .header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: white;
+        }
+
+        .header-cta {
+            background: var(--success);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: none; /* Mostra depois do vídeo */
+        }
+
+        .header-cta.visible {
+            display: inline-block;
+        }
+
+        .header-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 20px 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 50px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 40px 20px 80px;
+        }
+
+        .video-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe,
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Placeholder para vídeo */
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: white;
+        }
+
+        .play-button {
+            width: 100px;
+            height: 100px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.5);
+        }
+
+        .video-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* CTA Hidden - Aparece após X segundos de vídeo */
+        .video-cta {
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            text-align: center;
+            margin-top: 30px;
+            border-radius: 15px;
+            display: none; /* Controlado por JS */
+        }
+
+        .video-cta.visible {
+            display: block;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .video-cta h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .cta-button {
+            background: var(--success);
+            color: white;
+            padding: 25px 60px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.5);
+        }
+
+        .cta-subtext {
+            color: rgba(255,255,255,0.8);
+            margin-top: 15px;
+            font-size: 1.1rem;
+        }
+
+        /* Benefits Below Video */
+        .benefits-section {
+            background: white;
+            padding: 80px 20px;
+        }
+
+        .benefits-section h2 {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--dark);
+            margin-bottom: 60px;
+            font-weight: 800;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .benefit-item h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .benefit-item p {
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            background: var(--light);
+            padding: 80px 20px;
+        }
+
+        .social-proof h2 {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--dark);
+            margin-bottom: 50px;
+            font-weight: 800;
+        }
+
+        .testimonials-carousel {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .testimonial::before {
+            content: '★★★★★';
+            color: #fbbf24;
+            font-size: 1.3rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stats-bar {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 50px 20px;
+            margin-top: 60px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: var(--dark);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 30px;
+            font-weight: 900;
+        }
+
+        .final-cta p {
+            font-size: 1.5rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+        }
+
+        .price-display {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: rgba(255,255,255,0.6);
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .new-price {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: var(--success);
+            display: block;
+        }
+
+        .price-suffix {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        footer {
+            background: #000;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .stats-bar {
+                flex-direction: column;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--success);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">🚀 Transformação Digital</div>
+            <a href="#cta" class="header-cta" id="headerCta">Quero Começar Agora</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Como 10.000+ Pessoas Transformaram Seus Negócios em Apenas 90 Dias</h1>
+            <p class="subtitle">Assista ao vídeo abaixo e descubra o método exato passo a passo</p>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <!-- Placeholder - Substitua pelo seu vídeo real -->
+                    <div class="video-placeholder" id="videoPlaceholder">
+                        <div class="play-button" onclick="playVideo()">▶</div>
+                        <div class="video-title">Clique para assistir ao vídeo completo</div>
+                    </div>
+                    
+                    <!-- Seu vídeo aqui (YouTube, Vimeo, Wistia, ou HTML5) -->
+                    <!-- Exemplo YouTube: -->
+                    <!--
+                    <iframe 
+                        src="https://www.youtube.com/embed/SEU_VIDEO_ID?autoplay=1" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        id="videoFrame"
+                        style="display: none;">
+                    </iframe>
+                    -->
+                    
+                    <!-- Exemplo HTML5: -->
+                    <video 
+                        id="mainVideo" 
+                        style="display: none;"
+                        controls
+                        controlsList="nodownload"
+                        oncontextmenu="return false;">
+                        <source src="seu-video.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                </div>
+            </div>
+
+            <!-- CTA que aparece após X tempo de vídeo -->
+            <div class="video-cta" id="videoCta">
+                <h2>Pronto Para Transformar Seu Negócio?</h2>
+                <a href="#final-cta" class="cta-button">Sim! Quero Começar Agora</a>
+                <p class="cta-subtext">⚡ Vagas limitadas - Apenas 47 disponíveis</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2>O Que Você Vai Aprender</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <span class="benefit-icon">🎯</span>
+                    <h3>Estratégia Completa</h3>
+                    <p>Método passo a passo validado em mais de 5.000 negócios diferentes, do zero à primeira venda</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">💰</span>
+                    <h3>Vendas Consistentes</h3>
+                    <p>Sistema previsível que gera vendas todos os dias, sem depender de sorte ou aleatoriedade</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">📈</span>
+                    <h3>Escala Sustentável</h3>
+                    <p>Aprenda a crescer seu negócio de forma estruturada, sem burnout e com margem saudável</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🔄</span>
+                    <h3>Automação Inteligente</h3>
+                    <p>Configure funis automatizados que trabalham por você 24 horas por dia, 7 dias por semana</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🎓</span>
+                    <h3>Suporte Premium</h3>
+                    <p>Acesso direto a especialistas e comunidade exclusiva para acelerar seus resultados</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">⚡</span>
+                    <h3>Resultados Rápidos</h3>
+                    <p>Veja as primeiras vendas acontecendo em menos de 14 dias aplicando o método</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <h2>O Que Nossos Alunos Estão Dizendo</h2>
+            <div class="testimonials-carousel">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Em 60 dias, fui de R$ 0 para R$ 43 mil em faturamento. O método realmente funciona se você aplicar direitinho!"</p>
+                    <div class="testimonial-author">Carlos Mendes</div>
+                    <div>Infoprodutos</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Finalmente entendi como funciona um funil de vendas de verdade. Minha conversão quadruplicou no primeiro mês!"</p>
+                    <div class="testimonial-author">Patricia Lima</div>
+                    <div>E-commerce</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"O suporte e a comunidade são incríveis. Sempre tem alguém para ajudar e compartilhar resultados reais."</p>
+                    <div class="testimonial-author">Roberto Dias</div>
+                    <div>Serviços Online</div>
+                </div>
+            </div>
+
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="stat-number">10.000+</span>
+                    <span class="stat-label">Alunos Ativos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">R$ 87M+</span>
+                    <span class="stat-label">Gerados em Vendas</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4.9/5</span>
+                    <span class="stat-label">Satisfação</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">93%</span>
+                    <span class="stat-label">Taxa de Sucesso</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="final-cta">
+        <div class="container">
+            <h2>Comece Sua Transformação Hoje</h2>
+            <p>Junte-se a milhares de empreendedores que já transformaram seus negócios</p>
+
+            <div class="price-display">
+                <span class="old-price">De R$ 2.997</span>
+                <span class="new-price">R$ 997</span>
+                <p class="price-suffix">ou 12x de R$ 97 sem juros</p>
+            </div>
+
+            <a href="#" class="cta-button" onclick="checkout()">Garantir Minha Vaga Agora</a>
+            
+            <p style="margin-top: 30px; font-size: 1.1rem;">
+                🛡️ Garantia incondicional de 30 dias<br>
+                ⚡ Apenas 47 vagas nesta turma
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Transformação Digital. Todos os direitos reservados.</p>
+            <p style="margin-top: 15px;">
+                <a href="index.html">← Voltar para o Menu Principal</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        let videoStarted = false;
+        let ctaShown = false;
+
+        // Play Video
+        function playVideo() {
+            const placeholder = document.getElementById('videoPlaceholder');
+            const video = document.getElementById('mainVideo');
+            
+            placeholder.style.display = 'none';
+            video.style.display = 'block';
+            video.play();
+            videoStarted = true;
+
+            // Tracking do tempo de vídeo
+            video.addEventListener('timeupdate', function() {
+                // Mostrar CTA após 30 segundos de vídeo
+                if (video.currentTime > 30 && !ctaShown) {
+                    showVideoCta();
+                }
+
+                // Atualizar progress bar
+                const progress = (video.currentTime / video.duration) * 100;
+                document.getElementById('progressBar').style.width = progress + '%';
+            });
+        }
+
+        // Show Video CTA
+        function showVideoCta() {
+            document.getElementById('videoCta').classList.add('visible');
+            document.getElementById('headerCta').classList.add('visible');
+            ctaShown = true;
+        }
+
+        // Scroll Progress
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            if (!videoStarted) {
+                document.getElementById('progressBar').style.width = scrolled + '%';
+            }
+        });
+
+        // Checkout
+        function checkout() {
+            alert('Redirecionando para checkout seguro...\n\nAqui você integraria com sua plataforma de pagamento.');
+            // window.location.href = 'checkout.html';
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Auto-show CTA se usuário rolar muito sem assistir vídeo
+        let scrollDistance = 0;
+        window.addEventListener('scroll', function() {
+            scrollDistance = window.pageYOffset;
+            
+            // Se rolou mais de 50% da página sem assistir o vídeo, mostrar CTA
+            const pageHeight = document.documentElement.scrollHeight;
+            if (scrollDistance > pageHeight * 0.5 && !ctaShown) {
+                showVideoCta();
+            }
+        });
+    </script>
+</body>
+</html>
